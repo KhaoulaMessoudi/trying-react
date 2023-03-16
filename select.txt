@@ -1,0 +1,47 @@
+//import { Fragment } from "react"; 
+import { useState } from "react";
+//import { MouseEvent, useState } from "react";
+function ListGroup() {
+
+  let items=['casablanca','marrakech','rabat','ouarzazate'];
+  const [selectedIndex,setselectedIndex]=useState(-1);
+  
+//items=[];
+//--Event handler
+//const handleClick=(event :MouseEvent)=> console.log(event);
+
+  /*if(items.length===0)
+return <p>no item found</p>;*/
+//const message =items.length===0 ? <p>no item found</p>: null;
+
+/*const getMessage = ()=>{
+return items.length===0 ? <p>no item found</p>: null
+}*/
+  return (
+    <>
+    <h1>List</h1>
+{items.length===0 &&<p>no item found</p>}
+  
+
+
+    <ul className="list-group">
+    {items.map((item,index) =>(
+
+    <li
+     className={selectedIndex === index
+    ?"list-group-item active"
+  :"list-group-item"
+} 
+    key ={item}
+    onClick={()=>{setselectedIndex(index);}}
+    
+    >{item}</li>
+
+))}
+
+
+    </ul>
+    </>
+  );
+}
+export default ListGroup;
